@@ -1,0 +1,48 @@
+<%#VIEW %>
+<html>
+    <head>
+        <title>
+            <%= title%>
+        </title>
+        <script src="https://kit.fontawesome.com/c217d88a2e.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/index.css">
+    </head>
+    <body>
+        <div id="container">
+                <h1> MY CONTACTS</h1>
+            <ul>
+                <% for(let i of contact_list) {%>
+                    <li>
+                        <div class="contact">
+                            <p><%= i.name %></p>
+                            <p><%= i.phone %></p>
+                        </div>
+                        <div class="dlt-btn">
+                            <!-- 'get' request by default -->
+                            <!-- form data to apne aap parameter mein add ho jata hai, -->
+                            <!-- isko explicitly krna pde ga -->
+                            <!-- for each 'i' there is different value of i.mobile_no -->
+                            <!-- parameter -->
+                            <!-- <a href="/delete-contact/<%= i.mobile_no%>"> -->
+                            <!-- <a href="/delete-contact/?phone=<%= i.mobile_no %> & -->
+                                <!-- name=<%= i.name %>"> -->
+                        <a href="/delete-contact/?id=<%= i._id %>">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </a>
+                        </div>
+                        
+                    </li>
+                <% } %> 
+            </ul>
+        </div>
+        <div id="contact-form">
+             <!-- specify the route -->
+            <form action="/create-contact" method="get">
+                <input type="text" placeholder="Name" name="name" required>
+                <input type="number" placeholder="Number" name="number" required min="1000000000" max="99999999999">
+                <button type="submit">Add</button>
+            </form>
+        </div>
+        <script type="text/javascript" src="/js/home.js"></script>
+    </body>
+</html>

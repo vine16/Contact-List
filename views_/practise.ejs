@@ -1,0 +1,25 @@
+<%# we can write anything that js does over here %>
+<html>
+    <head>
+        <title>
+            <%= locals.title %>
+        </title>
+    </head>
+    <body>
+        <h1>Playground</h1>
+        <%# = to print, other just the logic part %>
+        <ul>
+            <% for(let i = 0; i < 5; i++){ %>
+            <li>
+                <%= i %>
+            </li>
+            <%}%>
+        </ul>
+
+        <% if(true) { %> 
+            <h1>It's true !</h1>
+        <% }else{%>
+            <p> it's false :(</p>
+        <% } %>
+    </body>
+</html>
