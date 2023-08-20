@@ -3,9 +3,9 @@ simple contact manager application
 
 ## Table of Contents
 
-- #installation
-- #usage
-- #contributing
-- #license
+- # installation
+- # usage
+- # contributing
+- # license
 
 
