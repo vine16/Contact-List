@@ -86,7 +86,7 @@ app.get('/', async function(req, res){ //handles HTTP 'GET' request
     // res.sendFile('C:/Users/HP/OneDrive/Desktop/Backend/Express.js/contact_list/education.html');
     // res.sendFile(__dirname + '/education.html');
     // res.send('<h1> it is working </h1>');
-    // console.log(__dirname);
+// console.log(__dirname);
 
     try{
         const contacts = await Contact.find({});
@@ -142,11 +142,21 @@ app.get('/create-contact', async function(req, res){
     // });
     try{
         let newContact = await Contact.create({
-        name: req.query.name,
-        phone : req.query.number
+            name: req.query.name,
+            phone : req.query.number
         })
 
-        console.log(newContact);
+        if(req.xhr)
+        {
+            return res.status(200).json({
+                data:{
+                    contactId: newContact._id,
+                    name: req.query.name,
+                    phone : req.query.number
+                },
+                message: 'contact added successfully'
+            });
+        }
     }
     catch(err)
     {

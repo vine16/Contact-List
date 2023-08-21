@@ -10,7 +10,7 @@
     <body>
         <div id="container">
                 <h1> MY CONTACTS</h1>
-            <ul>
+            <ul id="contact_list_container">
                 <% for(let i of contact_list) {%>
                     <li>
                         <div class="contact">
@@ -37,12 +37,13 @@
         </div>
         <div id="contact-form">
              <!-- specify the route -->
-            <form action="/create-contact" method="get">
+            <form id="new-contact-form" action="/create-contact" method="get">
                 <input type="text" placeholder="Name" name="name" required>
                 <input type="number" placeholder="Number" name="number" required min="1000000000" max="99999999999">
                 <button type="submit">Add</button>
             </form>
         </div>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
         <script type="text/javascript" src="/js/home.js"></script>
     </body>
 </html>
