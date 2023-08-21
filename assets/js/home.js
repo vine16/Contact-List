@@ -29,7 +29,26 @@ $(document).ready(function() {
 
     });
 
+    function deleteContact(deleteLink)
+    {
+        $(deleteLink).click(function(event)
+        {
+            event.preventDefault();
+            $.ajax({
+                type: 'get',
+                url: $(deleteLink).prop('href'),
+                success: function(data){
+                    $(`#contact-${data.data.id}`).remove();
+                },error: function(error){
+                    console.log(error.responseText);
+                }
+            });
+        })
+    }
 
+    $('.delete-contact').each(function(){
+        deleteContact(this);
+    })
     function createDOMContact(id, name, phone)
     {
         const item = `<li>
@@ -43,7 +62,6 @@ $(document).ready(function() {
                 </a>
             </div>
         </li>`
-
         return item;
     }
 });

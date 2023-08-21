@@ -12,7 +12,7 @@
                 <h1> MY CONTACTS</h1>
             <ul id="contact_list_container">
                 <% for(let i of contact_list) {%>
-                    <li>
+                    <li id="contact-<%= i._id %>">
                         <div class="contact">
                             <p><%= i.name %></p>
                             <p><%= i.phone %></p>
@@ -26,7 +26,7 @@
                             <!-- <a href="/delete-contact/<%= i.mobile_no%>"> -->
                             <!-- <a href="/delete-contact/?phone=<%= i.mobile_no %> & -->
                                 <!-- name=<%= i.name %>"> -->
-                        <a href="/delete-contact/?id=<%= i._id %>">
+                        <a class="delete-contact" href="/delete-contact/?id=<%= i._id %>">
                                 <i class="fa-solid fa-trash-can"></i>
                             </a>
                         </div>

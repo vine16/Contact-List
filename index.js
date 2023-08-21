@@ -188,6 +188,15 @@ app.get('/delete-contact', async function(req, res)
     //find the contact with this id and delete it
     try{
         await Contact.findByIdAndDelete(id);
+
+        if(req.xhr)
+        {
+            return res.status(200).json({
+                data:{
+                    id: id
+                }
+            })
+        }
     }
     catch(err)
     {
